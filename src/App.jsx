@@ -15,6 +15,59 @@ const chartNotes = [
   'Sentiment comparison to see whether tone influences attention.',
 ];
 
+function LoadingSkeleton() {
+  return (
+    <main className="app-shell">
+      <section className="hero hero-skeleton">
+        <div className="hero-copy skeleton-card">
+          <div className="skeleton skeleton-pill" />
+          <div className="skeleton skeleton-title" />
+          <div className="skeleton skeleton-line wide" />
+          <div className="skeleton skeleton-line" />
+        </div>
+        <div className="hero-panel skeleton-card">
+          <div className="skeleton skeleton-subtitle" />
+          <div className="skeleton skeleton-line wide" />
+          <div className="skeleton skeleton-line wide" />
+          <div className="skeleton skeleton-line" />
+        </div>
+      </section>
+
+      <section className="stats-grid">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <article key={index} className="stat-card skeleton-card">
+            <div className="skeleton skeleton-label" />
+            <div className="skeleton skeleton-metric" />
+            <div className="skeleton skeleton-line" />
+          </article>
+        ))}
+      </section>
+
+      <section className="insights-grid">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <article key={index} className="insight-card skeleton-card">
+            <div className="skeleton skeleton-subtitle" />
+            <div className="skeleton skeleton-line wide" />
+            <div className="skeleton skeleton-line wide" />
+            <div className="skeleton skeleton-line short" />
+            <div className="skeleton skeleton-chart" />
+          </article>
+        ))}
+      </section>
+
+      <section className="charts-grid">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <article key={index} className="chart-card skeleton-card">
+            <div className="skeleton skeleton-subtitle" />
+            <div className="skeleton skeleton-line wide" />
+            <div className="skeleton skeleton-plot" />
+          </article>
+        ))}
+      </section>
+    </main>
+  );
+}
+
 export default function App() {
   const [state, setState] = useState({ status: 'loading', analytics: null, error: null });
 
@@ -37,13 +90,13 @@ export default function App() {
   }, []);
 
   if (state.status === 'loading') {
-    return <main className="app-shell"><p className="status-message">Loading podcast analytics…</p></main>;
+    return <LoadingSkeleton />;
   }
 
   if (state.status === 'error') {
     return (
       <main className="app-shell">
-        <p className="status-message">The dashboard could not load `data/data.csv`: {state.error.message}</p>
+        <p className="status-message">The dashboard could not load `public/data.csv`: {state.error.message}</p>
       </main>
     );
   }
@@ -60,8 +113,14 @@ export default function App() {
             This React 19 and D3 dashboard turns raw episode metadata into practical decisions about timing,
             format, guests, tone, and ad pressure.
           </p>
+          <div className="hero-badges">
+            <span>Release timing</span>
+            <span>Completion rate</span>
+            <span>Audience retention</span>
+          </div>
         </div>
         <div className="hero-panel">
+          <p className="panel-kicker">Decision Pack</p>
           <h2>Included analyses</h2>
           <ul>
             {chartNotes.map((item) => (
@@ -96,7 +155,7 @@ export default function App() {
 
       <section className="insights-grid">
         {analytics.recommendations.map((item) => (
-          <InsightCard key={item.title} title={item.title} body={item.body} />
+          <InsightCard key={item.title} title={item.title} body={item.body} chart={item.chart} />
         ))}
       </section>
 
