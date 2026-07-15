@@ -1,0 +1,236 @@
+:root {
+  color-scheme: light;
+  font-family: "Space Grotesk", "Avenir Next", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #15201a;
+  background:
+    radial-gradient(circle at top left, rgba(242, 201, 76, 0.32), transparent 28%),
+    radial-gradient(circle at top right, rgba(46, 134, 171, 0.24), transparent 24%),
+    linear-gradient(180deg, #f7f4ec 0%, #edf3ee 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+#root {
+  width: 100%;
+}
+
+.app-shell {
+  width: min(1240px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.hero-copy,
+.hero-panel,
+.stat-card,
+.insight-card,
+.chart-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(21, 32, 26, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 18px 60px rgba(17, 31, 23, 0.08);
+}
+
+.hero-copy {
+  padding: 32px;
+}
+
+.hero-panel {
+  padding: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #007a78;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 5vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.hero-body,
+.hero-panel p,
+.chart-copy p,
+.insight-card p,
+.stat-detail,
+.status-message {
+  color: #47544c;
+}
+
+.hero-body {
+  max-width: 60ch;
+  font-size: 1.05rem;
+  margin: 20px 0 0;
+}
+
+.hero-panel h2,
+.chart-copy h3,
+.insight-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.hero-panel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.hero-panel li + li {
+  margin-top: 10px;
+}
+
+.stats-grid,
+.insights-grid,
+.charts-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.stat-card {
+  padding: 24px;
+}
+
+.stat-label {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #66746b;
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.stat-detail {
+  margin: 10px 0 0;
+}
+
+.insights-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.insight-card {
+  padding: 20px;
+}
+
+.charts-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.chart-card {
+  padding: 22px;
+}
+
+.chart-copy {
+  margin-bottom: 16px;
+}
+
+.chart-copy h3 {
+  font-size: 1.12rem;
+}
+
+.chart-copy p {
+  margin: 0;
+}
+
+.chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+svg text {
+  fill: #526258;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.bar-label,
+.heatmap-label {
+  fill: #13241a;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status-message {
+  padding: 32px;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .hero,
+  .charts-grid,
+  .insights-grid,
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .insights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    width: min(100% - 20px, 1240px);
+    padding: 20px 0 40px;
+  }
+
+  .hero,
+  .charts-grid,
+  .insights-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .stat-card,
+  .insight-card,
+  .chart-card {
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+}
