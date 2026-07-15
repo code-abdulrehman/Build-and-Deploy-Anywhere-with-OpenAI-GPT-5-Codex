@@ -168,7 +168,7 @@ export function buildAnalytics(rows) {
   const recommendations = [
     {
       title: `Prioritize ${bestDay.label} releases`,
-      body: `${bestDay.label} shows the strongest average completion rate at ${bestDay.avgCompletionRate.toFixed(1)}%, making it the best weekday to test premium episodes and promotional launches.`,
+      body: `${bestDay.avgCompletionRate.toFixed(1)}% avg completion`,
       chart: {
         color: '#0f9d8a',
         formatValue: (value) => `${value.toFixed(0)}%`,
@@ -182,7 +182,7 @@ export function buildAnalytics(rows) {
     },
     {
       title: `Publish more often in the ${bestTime.label.toLowerCase()}`,
-      body: `${bestTime.label} releases keep listeners around for ${bestTime.avgCompletionRate.toFixed(1)}% of an episode on average, suggesting stronger habit alignment in that slot.`,
+      body: `${bestTime.avgCompletionRate.toFixed(1)}% listener hold`,
       chart: {
         color: '#1d6fd6',
         formatValue: (value) => `${value.toFixed(0)}%`,
@@ -196,7 +196,7 @@ export function buildAnalytics(rows) {
     },
     {
       title: `Aim for ${bestLength.label} episodes`,
-      body: `Episodes in the ${bestLength.label} range produce the best average completion rate at ${bestLength.avgCompletionRate.toFixed(1)}%, which is a strong target for your main format.`,
+      body: `${bestLength.avgCompletionRate.toFixed(1)}% completion peak`,
       chart: {
         color: '#ef476f',
         formatValue: (value) => `${value.toFixed(0)}%`,
@@ -210,7 +210,7 @@ export function buildAnalytics(rows) {
     },
     {
       title: `Lean into ${bestGenre.label}`,
-      body: `${bestGenre.label} leads the genre table by completion rate. If your show can borrow adjacent topics or packaging cues from that genre, it is worth testing.`,
+      body: `${bestGenre.avgCompletionRate.toFixed(1)}% genre leader`,
       chart: {
         color: '#00916e',
         formatValue: (value) => `${value.toFixed(0)}%`,
@@ -224,7 +224,7 @@ export function buildAnalytics(rows) {
     },
     {
       title: `Keep ad load near ${bestAds.label}`,
-      body: `${bestAds.label} ads correlates with the best completion rate in this dataset. Treat heavier ad breaks cautiously unless revenue outweighs attention loss.`,
+      body: `${bestAds.avgCompletionRate.toFixed(1)}% at ${bestAds.label} ads`,
       chart: {
         color: '#8f5cff',
         formatValue: (value) => `${value.toFixed(0)}%`,

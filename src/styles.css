@@ -230,14 +230,22 @@ h1 {
   font-size: 1.1rem;
   line-height: 1.15;
   max-width: 12ch;
+  margin-bottom: 8px;
+}
+
+.insight-summary {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
 .mini-chart {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   margin-top: auto;
-  padding-top: 22px;
+  padding-top: 14px;
 }
 
 .mini-line-chart {
@@ -249,7 +257,7 @@ h1 {
 
 .mini-line-labels {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -284,8 +292,17 @@ h1 {
     linear-gradient(180deg, #fffdf8, #f8fbf8);
 }
 
-.chart-copy {
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
   margin-bottom: 16px;
+}
+
+.chart-copy {
+  margin-bottom: 0;
+  max-width: 44ch;
 }
 
 .chart-copy h3 {
@@ -448,5 +465,9 @@ svg text {
 
   .mini-line-labels {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .chart-head {
+    flex-direction: column;
   }
 }
